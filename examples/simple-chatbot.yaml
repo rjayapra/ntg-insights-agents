@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://aka.ms/ai-foundry-vsc/agent/1.0.0
+version: 1.0.0
+name: simple-chatbot
+description: A simple conversational AI agent
+id: ''
+metadata:
+  authors:
+    - NTG Team
+  tags:
+    - chatbot
+    - general
+model:
+  id: 'gpt-4o'
+  options:
+    temperature: 1
+    top_p: 1
+instructions: |
+  You are a helpful and friendly AI assistant.
+  Provide clear, accurate, and helpful responses to user questions.
+tools: []
