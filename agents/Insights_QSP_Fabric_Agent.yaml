@@ -1,0 +1,133 @@
+# yaml-language-server: $schema=https://aka.ms/ai-foundry-vsc/agent/1.0.0
+# version of the agent schema
+version: 1.0.0
+name: QSP_Fabric_Agent
+
+# Give a description of your agent. This does not affect the agent's behavior, but it can help you remember what the agent is for.
+# Please use instructions to define the agent's behavior.
+description: ""
+
+# unique identifier for the agent, should be set by the system when deploy complete
+# keep it empty when creating a new agent and do not change it when updating the agent
+id: asst_ispztQMPIpcaW5RIfqj0wkpz
+
+# metadata for the agent, uncommented those lines if you want to add metadata
+# metadata:
+#   authors:
+#     - author1
+#     - author2
+#   tags:
+#     - tag1
+#     - tag2
+
+# model id of the agent, can not be empty
+# Press SPACE to view a list of models currently connected to your project.
+model:
+  id: gpt-4.1
+  options:
+    temperature: 1
+    top_p: 1
+# Give your agent clear directions on what to do and how to do it.
+# Include specific tasks, their order, and any special instructions like tone or engagement style.
+instructions: >-
+  QSP Semantic Navigator- Fabric 
+
+
+  Purpose:
+
+  This agent enables semantic exploration of Royal Canadian Navy Qualification
+  Standard Plans (QSPs) using the data.qsp_master_tp table. It interprets
+  natural language queries to retrieve relevant learning objectives, performance
+  statements, instructional methods, teaching points, tasks, references, and
+  metadatawithout relying on exact keyword matches or rigid schema constraints.
+
+   Capabilities
+  Semantic Retrieval: Understands user intent and context to locate relevant
+  POs, EOs, and TPseven when terminology varies or is incomplete.
+
+  Contextual Linking: Automatically connects related elements across grain
+  levels (PO, EO, TP) using composite keys (file_name, po_code, eo_code,
+  tp_code) and secondary identifiers (spine_qspfileid, crm_qspfileid).
+
+  Learning Objective Discovery: Surfaces EO-level and TP-level learning
+  objectives from both structured fields (eo_learning_objectives,
+  tp_learning_objectives) and nested arrays (lo_rows).
+
+  Instructional Insight: Extracts instructional methods, training aids, and test
+  details to support curriculum design and delivery.
+
+  Task & Reference Mapping: Retrieves associated tasks (tasks) and references
+  (references) to enrich understanding of operational expectations and source
+  materials.
+
+  Metadata Awareness: Provides CRM-linked metadata such as file ownership,
+  course aims, prerequisites, duration, and assessment strategies.
+   Semantic Anchors
+  The agent uses the following semantic anchors to interpret and respond to
+  queries:
+
+
+  Performance & Conditions: po_performance, eo_performance, po_condition_given,
+  eo_condition_denied, etc.
+
+  Instructional Content: InstructionalMethods, TrainingAids, tp_instructions,
+  tp_subpoints
+
+  Learning Objectives: eo_learning_objectives, tp_learning_objectives, lo_rows
+
+  Time & Domain Tags: TotalTimeRequired, tp_time, Cognitive, Pchychomotor,
+  Affective
+
+  File-Level Metadata: ntg_aim, ntg_duration, ntg_prerequisites,
+  ntg_training_resources
+# metadata for the agent, uncommented those lines if you want to add metadata
+metadata:
+  source: foundry-export
+  original_id: asst_gJQJjpeA93XRygeej3hvZZeO
+# Add external tools to enhance your agent's abilities.
+# tools:
+#   # Enhance model output with grounding with Bing Search
+#   - type: bing_grounding
+#     id: bing_search
+#     options:
+#       tool_connections:
+#         # The connection id of the BingSearch connection
+#         # Press SPACE to view a list of Bing Search resources currently connected to your project.
+#         - /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.MachineLearningServices/workspaces/PROJECT_NAME/connections/BING_SEARCH_CONNECTION_NAME
+#
+#   # Read and interpret information from datasets, generate code, and create graphs and charts.
+#   - type: code_interpreter
+#     id: code interpreter
+#     options:
+#       file_ids:
+#         # List of file ids to be used by the code interpreter
+#         # Press SPACE to view a list of data sources currently connected to your project.
+#         - assistant-00000000000000000000000
+#
+#   # Add your own files to augment the agent with specialized knowledge.
+#   # Files will be added to a vector store that the search index can reference for quick information retrieval.
+#   # Encrypted or sensitivity-labeled files are not supported.
+#   - type: file_search
+#     id: file search
+#     options:
+#       vector_store_ids:
+#         # List of vector store ids to be used by the agent
+#         # Press SPACE to view a list of vector store name currently connected to your project.
+#         - vs_00000000000000000000000
+#
+#   # Trigger APIs with inputs and outputs schema defined using OpenAPI 3.0 spec.
+#   # You can find more documentation on https://go.microsoft.com/fwlink/?linkid=2309751
+#   # And here you can find a sample OpenAPI spec: https://aka.ms/ai-foundry-vsc/openapi-sample
+#   - type: openapi
+#     id: GetCurrentWeather
+#     description: Retrieves current weather data
+#     options:
+#       specification: "{}"
+#   # Use MCP tools to interact with external services.
+#   - type: mcp
+#     id: mcp_server
+#     options:
+#       server_url: "https://mcp.example.com/api"
+#       allowed_tools:
+#         - tool1
+#         - tool2

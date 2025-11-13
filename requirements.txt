@@ -1,0 +1,23 @@
+# Azure AI and OpenAI
+azure-ai-inference>=1.0.0
+azure-identity>=1.19.0
+openai>=1.58.1
+
+# Agent frameworks
+semantic-kernel>=1.18.1
+autogen-agentchat>=0.4.0
+
+# Core dependencies
+python-dotenv>=1.0.0
+pydantic>=2.10.3
+pyyaml>=6.0.2
+aiohttp>=3.11.10
+
+# Tracing and observability
+opentelemetry-api>=1.29.0
+opentelemetry-sdk>=1.29.0
+azure-monitor-opentelemetry>=1.7.0
+
+# Utilities
+requests>=2.32.3
+tenacity>=9.0.0

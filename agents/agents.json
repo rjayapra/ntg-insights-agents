@@ -1,0 +1,59 @@
+{
+    "agents": [
+        {
+            "name": "Insights_Index_Agent",
+            "instruction_source": "Insights_Index_Agent.yaml",
+            "deployment_name": "gpt-4.1",
+            "description": "Index Agent responsible for retrieving reference materials that support instructional content, particularly those linked to QSP documents. Locates and gathers relevant documents, data, or resources from diverse sources.",
+            "coding_tools": false
+        },
+        {
+            "name": "Insights_Lesson_Plan_Agent",
+            "instruction_source": "Insights_Lesson_Plan_Agent.yaml",
+            "deployment_name": "gpt-4.1",
+            "description": "Instructional design assistant that generates lesson plans after confirming critical questions about target audience, objectives, conditions, standards, teaching points, references, instructional methods, and assessment.",
+            "coding_tools": false
+        },
+        {
+            "name": "Insights_Orchestrator_Agent",
+            "instruction_source": "Insights_Orchestrator_Agent.yaml",
+            "deployment_name": "gpt-4.1",
+            "description": "Orchestrator Agent that synthesizes and finalizes coherent instructional deliverables by combining outputs from QSP Agent, Index Agent, and Reference Agent. Outputs must be in Markdown with full citations.",
+            "coding_tools": false
+        },
+        {
+            "name": "Insights_QSP_CI_Agent_CSV",
+            "instruction_source": "Insights_QSP_CI_Agent_CSV.yaml",
+            "deployment_name": "gpt-4.1",
+            "description": "QSP Data Agent operating with CSV file containing RCN QSP/QS-TP data. Retrieves PO, EO, LO, TP hierarchy and references from flat CSV format.",
+            "coding_tools": true,
+            "coding_tool_resource": [
+                "../tools/Insights_QSP_CI_Agent_CSV_20250905.csv"
+            ]
+        },
+        {
+            "name": "Insights_QSP_CI_Agent_JSON",
+            "instruction_source": "Insights_QSP_CI_Agent_JSON.yaml",
+            "deployment_name": "gpt-4.1",
+            "description": "QSP Data Agent operating with JSON file containing RCN QSP/QSTP data. Retrieves PO, EO, LO, TP hierarchy and references from JSON format.",
+            "coding_tools": true,
+            "coding_tool_resource": [
+                "../tools/Insights_QSP_CI_Agent_JSON_20250905.json"
+            ]
+        },
+        {
+            "name": "Insights_QSP_Fabric_Agent",
+            "instruction_source": "Insights_QSP_Fabric_Agent.yaml",
+            "deployment_name": "gpt-4.1",
+            "description": "QSP Semantic Navigator that enables semantic exploration of Royal Canadian Navy Qualification Standard Plans using data.qsp_master_tp table. Interprets natural language queries for learning objectives, performance statements, and references.",
+            "coding_tools": false
+        },
+        {
+            "name": "Insights_Reference_Agent",
+            "instruction_source": "Insights_Reference_Agent.yaml",
+            "deployment_name": "gpt-4.1",
+            "description": "Reference Agent responsible for validating contextual relevance of reference documents retrieved by Index Agent. Ensures references support instructional goals and filters out irrelevant or outdated materials.",
+            "coding_tools": false
+        }
+    ]
+}
